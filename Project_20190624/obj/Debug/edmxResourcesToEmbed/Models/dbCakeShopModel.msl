@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbCakeShopModelStoreContainer" CdmEntityContainer="dbCakeShopEntities">
+    <EntitySetMapping Name="tComments">
+      <EntityTypeMapping TypeName="dbCakeShopModel.tComment">
+        <MappingFragment StoreEntitySet="tComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tIGs">
+      <EntityTypeMapping TypeName="dbCakeShopModel.tIG">
+        <MappingFragment StoreEntitySet="tIG">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IgContent" ColumnName="IgContent" />
+          <ScalarProperty Name="IgSrc" ColumnName="IgSrc" />
+          <ScalarProperty Name="IgDate" ColumnName="IgDate" />
+          <ScalarProperty Name="IgLink" ColumnName="IgLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tMembers">
+      <EntityTypeMapping TypeName="dbCakeShopModel.tMember">
+        <MappingFragment StoreEntitySet="tMember">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="repwd" ColumnName="repwd" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="birthDay" ColumnName="birthDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOrderDetails">
+      <EntityTypeMapping TypeName="dbCakeShopModel.tOrderDetail">
+        <MappingFragment StoreEntitySet="tOrderDetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderGuid" ColumnName="OrderGuid" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="pName" ColumnName="pName" />
+          <ScalarProperty Name="pPrice" ColumnName="pPrice" />
+          <ScalarProperty Name="pQty" ColumnName="pQty" />
+          <ScalarProperty Name="isApprove" ColumnName="isApprove" />
+          <ScalarProperty Name="recName" ColumnName="recName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tProds">
+      <EntityTypeMapping TypeName="dbCakeShopModel.tProd">
+        <MappingFragment StoreEntitySet="tProd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="pName" ColumnName="pName" />
+          <ScalarProperty Name="pComp" ColumnName="pComp" />
+          <ScalarProperty Name="pPrice" ColumnName="pPrice" />
+          <ScalarProperty Name="pImage" ColumnName="pImage" />
+          <ScalarProperty Name="pSale" ColumnName="pSale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

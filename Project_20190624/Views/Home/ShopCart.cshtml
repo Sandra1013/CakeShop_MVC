@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Project_20190624.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "ShopCart";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderGuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isApprove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @{int sum = 0; }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderGuid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pQty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isApprove)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pPrice)
+            </td>
+            <td>
+                <a href="@Url.Action("DeleteCart")?Id=@item.Id" class="btn btn-danger btn-xs">刪除</a>
+            </td>
+        </tr>
+        sum = sum + Convert.ToInt32(@item.pPrice) * Convert.ToInt32(@item.pQty);
+    }
+</table>
+
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="input-group mb-5 mt-3 col-md-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text">總計</span>
+            <span class="input-group-text">$</span>
+        </div>
+        <input type="button" class="form-control" value="@sum">
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+<form action="@Url.Action("ShopCart")" method="post">
+    <div class="form-horizontal">
+        <h4>請填寫收件者資訊</h4>
+        <hr />
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人姓名 </span>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="recName" name="recName" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人地址 </span>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="address" name="address" required />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">確認訂購</button>
+    </div>
+</form>

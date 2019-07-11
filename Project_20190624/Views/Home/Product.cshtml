@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project_20190624.Models.tProd>
+@{
+    ViewBag.Title = "Product";
+}
+
+<!--Gallery-->
+<section class="gallery py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <div class="row">
+            <div class="col-lg-4  mt-3">
+                <div class="rotated-title mb-lg-0 mb-md-5 mb-sm-4 mb-3">
+                    <h3 class="title  mb-md-4 mb-sm-3 mb-3">French pastry</h3>
+                    <h6 class="title-sub">Delicious</h6>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+
+                <!-- popup-->
+                <div id="gal @item.Id" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/images/@item.pImage" alt="Popup Image" class="img-fluid" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 gallery-img-grid cilent-item text-center my-3">
+                    <div class="clients-ile-img mt-3">
+                        <a href="#gal @item.Id">
+                            <img src="~/images/@item.pImage" alt="news image" class="img-fluid">
+                        </a>
+                        <div class="clients-color-ile text-center mt-lg-4 mt-3">
+                            <p>NT$@item.pPrice</p>
+                            <p>@item.pName</p>
+                            <p style="min-height:50px">@item.pComp</p>
+                            <div class="row mt-lg-1 mt-1">
+                                <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                    @if (Session["Member"] == null)
+                                    {
+                                        <div class="view-buttn mt-md-2 mt-1">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="view-buttn mt-md-2 mt-1">
+                                            <a href="@Url.Action("AddCart")?pName=@item.pName" class="btn">加入購物車</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

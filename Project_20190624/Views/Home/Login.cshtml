@@ -1,0 +1,38 @@
+﻿
+@model Project_20190624.Models.tMember
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="col-lg-6 col-md-12 col-sm-12 card bg-light mt-3">
+    <br /><br />
+    <div class="card-body">
+        <div class="container">
+            <h2>會員登入</h2>
+            <span style="color:red">@Html.Raw(ViewBag.Message)</span>
+            <br>
+            <form action="" method="post">
+                <div class="form-group">
+                    帳號: @Html.TextBoxFor(m => m.email, new { @class = "form-control", name = "email", placeholder = "請輸入電子郵件", required = "required" })
+                    <br />
+                </div>
+                <div class="form-group">
+                    密碼: @Html.PasswordFor(m => m.pwd, new { @class = "form-control", name = "pwd", placeholder = "請輸入密碼", required = "required" })
+                    <br />
+                </div>
+                @*<div class="form-group">
+                        <label for="randonNum">驗證碼:</label>
+                        <input type="text" class="form-control" id="randonNum" placeholder="請輸入驗證碼" name="randonNum" required>
+                        <br />
+                    </div>*@
+                <br /><br />
+                <button type="submit" class="btn btn-primary">登入</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-6 card bg-light mt-3">
+    <img class="w-100" src="~/images/Log1.jpg" />
+</div>
+

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbCakeShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="5" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="12" />
+          <Property Name="Message" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommentDate" Type="datetime" />
+          <Property Name="Image" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tIG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IgContent" Type="nvarchar" MaxLength="400" />
+          <Property Name="IgSrc" Type="nvarchar" MaxLength="200" />
+          <Property Name="IgDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="IgLink" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="pwd" Type="nvarchar" MaxLength="20" />
+          <Property Name="repwd" Type="nvarchar" MaxLength="20" />
+          <Property Name="userName" Type="nvarchar" MaxLength="5" />
+          <Property Name="birthDay" Type="date" />
+        </EntityType>
+        <EntityType Name="tOrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderGuid" Type="nvarchar" MaxLength="10" />
+          <Property Name="userName" Type="nvarchar" MaxLength="5" />
+          <Property Name="pName" Type="nvarchar" MaxLength="12" />
+          <Property Name="pPrice" Type="int" />
+          <Property Name="pQty" Type="int" />
+          <Property Name="isApprove" Type="nvarchar" MaxLength="3" />
+          <Property Name="recName" Type="nvarchar" MaxLength="5" />
+          <Property Name="address" Type="nvarchar" MaxLength="30" />
+          <Property Name="OrderDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tProd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pName" Type="nvarchar" MaxLength="12" />
+          <Property Name="pComp" Type="nvarchar" MaxLength="20" />
+          <Property Name="pPrice" Type="int" />
+          <Property Name="pImage" Type="nvarchar" MaxLength="15" />
+          <Property Name="pSale" Type="int" />
+        </EntityType>
+        <EntityContainer Name="dbCakeShopModelStoreContainer">
+          <EntitySet Name="tComment" EntityType="Self.tComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tIG" EntityType="Self.tIG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tMember" EntityType="Self.tMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tOrderDetail" EntityType="Self.tOrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tProd" EntityType="Self.tProd" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbCakeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
+          <Property Name="Image" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tIG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IgContent" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="IgSrc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IgDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="IgLink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="repwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="birthDay" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tOrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderGuid" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="userName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="pName" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="pPrice" Type="Int32" />
+          <Property Name="pQty" Type="Int32" />
+          <Property Name="isApprove" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="recName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tProd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pName" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="pComp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="pPrice" Type="Int32" />
+          <Property Name="pImage" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="pSale" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="dbCakeShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tComments" EntityType="Self.tComment" />
+          <EntitySet Name="tIGs" EntityType="Self.tIG" />
+          <EntitySet Name="tMembers" EntityType="Self.tMember" />
+          <EntitySet Name="tOrderDetails" EntityType="Self.tOrderDetail" />
+          <EntitySet Name="tProds" EntityType="Self.tProd" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbCakeShopModelStoreContainer" CdmEntityContainer="dbCakeShopEntities">
+          <EntitySetMapping Name="tComments">
+            <EntityTypeMapping TypeName="dbCakeShopModel.tComment">
+              <MappingFragment StoreEntitySet="tComment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tIGs">
+            <EntityTypeMapping TypeName="dbCakeShopModel.tIG">
+              <MappingFragment StoreEntitySet="tIG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IgContent" ColumnName="IgContent" />
+                <ScalarProperty Name="IgSrc" ColumnName="IgSrc" />
+                <ScalarProperty Name="IgDate" ColumnName="IgDate" />
+                <ScalarProperty Name="IgLink" ColumnName="IgLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tMembers">
+            <EntityTypeMapping TypeName="dbCakeShopModel.tMember">
+              <MappingFragment StoreEntitySet="tMember">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="repwd" ColumnName="repwd" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="birthDay" ColumnName="birthDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tOrderDetails">
+            <EntityTypeMapping TypeName="dbCakeShopModel.tOrderDetail">
+              <MappingFragment StoreEntitySet="tOrderDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderGuid" ColumnName="OrderGuid" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="pName" ColumnName="pName" />
+                <ScalarProperty Name="pPrice" ColumnName="pPrice" />
+                <ScalarProperty Name="pQty" ColumnName="pQty" />
+                <ScalarProperty Name="isApprove" ColumnName="isApprove" />
+                <ScalarProperty Name="recName" ColumnName="recName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tProds">
+            <EntityTypeMapping TypeName="dbCakeShopModel.tProd">
+              <MappingFragment StoreEntitySet="tProd">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="pName" ColumnName="pName" />
+                <ScalarProperty Name="pComp" ColumnName="pComp" />
+                <ScalarProperty Name="pPrice" ColumnName="pPrice" />
+                <ScalarProperty Name="pImage" ColumnName="pImage" />
+                <ScalarProperty Name="pSale" ColumnName="pSale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

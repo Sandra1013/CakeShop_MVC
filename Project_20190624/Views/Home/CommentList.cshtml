@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Project_20190624.Models.tComment>
+
+@{
+    ViewBag.Title = "CommentList";
+}
+
+<h1>現在是 @DateTime.Now</h1>
+<h4 class="title-sub center">評論清單:@Model.Count()則</h4>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentDate)
+            </td>
+            <td>
+                <a href="@Url.Action("delComment")?Id=@item.Id" class="btn btn-danger">刪除留言</a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title ||別來無恙</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/fonts/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- font-awesome icons -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="~/Content/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//stylesheets-->
+    <link href="//fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+
+</head>
+<body>
+    <!--headder-->
+    <div class="header-outs inner_page-banner " id="home">
+        <div class="headder-top">
+            <!--//navigation section -->
+            <!-- nav -->
+            <nav>
+                <div id="logo">
+                    <h1>
+                        @Html.ActionLink("別來無恙", "Index", "Home")
+                    </h1>
+                </div>
+                <label for="drop" class="toggle">Menu</label>
+                <input type="checkbox" id="drop">
+                <ul class="menu mt-2">
+                    <li class="active">
+                        @Html.ActionLink("首頁", "Index", "Home")
+                    </li>
+                    <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                        @Html.ActionLink("法式甜點", "Product", "Home")
+                    </li>
+                    <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                        @Html.ActionLink("部落客推薦", "Blog", "Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("聯絡我們", "Contact", "Home")
+                    </li>
+                    @if (@Session["Member"] != null)
+                    {
+                        <li></li>
+                        <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                            <!-- First Tier Drop Down -->
+                            <label for="drop-2" class="toggle toogle-2">
+                                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                <span class="fa fa-angle-down" aria-hidden="true"></span>
+                            </label>
+                            <a href="@Url.Action("ShopCart","Home")">
+                                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                <span class="badge">@Session["Total"]</span>
+                                <span class="fa fa-angle-down" aria-hidden="true"></span>
+                            </a>
+                            <input type="checkbox" id="drop-2">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("ShopCart","Home")">購物車</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("OrderDetail","Home")">訂單列表</a>
+                                </li>
+                                @if (@Session["Staff"] != null)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("DispatchList","Home")">未出貨清單</a>
+                                    </li>
+                                }
+                                @if (@Session["Admin"] != null)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("MemberList","Home")">會員清單</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("CommentList","Home")">留言清單</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                        <li>
+                            @Html.ActionLink("登出", "Logout", "Home")
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="mx-lg-3 mx-md-2 my-md-0 my-1">
+                            <!-- First Tier Drop Down -->
+                            <label for="drop-2" class="toggle toogle-2">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                <span class="fa fa-angle-down" aria-hidden="true"></span>
+                            </label>
+                            <a href="#">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                <span class="fa fa-angle-down" aria-hidden="true"></span>
+                            </a>
+                            <input type="checkbox" id="drop-2">
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Login","Home")">登入</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Register","Home")">註冊</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    <li>
+                        <a href="#">@Session["Welcome"]</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- //nav -->
+        </div>
+    </div>
+    <!--//headder-->
+    <!-- short -->
+    <div class="using-border py-3">
+        <div class="inner_breadcrumb  ml-4">
+            <ul class="short_ls">
+                <li>
+                    <a href="Index">Home</a>
+                    <span>/ /</span>
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //short-->
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <section class="py-lg-4 py-md-3 py-sm-3 py-3 bottom-footers">
+        <!-- move icon -->
+        <div class="text-center">
+            <a href="#home" class="move-top text-center mt-3">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </a>
+        </div>
+        <!--//move icon -->
+    </section>
+    <footer>
+        <div class="bottem-wthree-footer text-center py-md-4 py-3">
+            <p>
+                @DateTime.Now.Year All Rights Reserved | Design by Sandra
+            </p>
+        </div>
+    </footer>
+    <!--//footer -->
+</body>
+</html>

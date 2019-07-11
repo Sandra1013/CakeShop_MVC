@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Project_20190624.Models.tIG>
+@{
+    ViewBag.Title = "Instagram";
+}
+
+<!--blog-->
+<section class="blog py-lg-4 py-md-3 py-sm-3 py-3" id="blog">
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        @{int count = 0; }
+        @foreach (var item in Model)
+        {
+            if (@item.IgDate == "APRIL 21")
+            {
+                continue;
+            }
+            count++;
+            if (count > 6)
+            {
+                break;
+            }
+
+            <div class="row mt-lg-5 mt-md-4 mt-3">
+                <div class="col-lg-6 color-img-three my-3">
+                    <img src="@item.IgSrc" alt="news image" class="img-fluid" style="width:500px;height:280px">
+                </div>
+                <div class="col-lg-6 blog-left-sub my-3">
+                    <p style="height:200px">
+                        @item.IgContent
+                    </p>
+                    <div class="row mt-lg-4 mt-3">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="view-buttn">
+                                <a href="@item.IgLink" class="btn">查看原文</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 blog-date-time text-sm-right ">
+                            <ul>
+                                <li>
+                                    @item.IgDate
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+<!--//blog-->

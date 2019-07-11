@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCakeShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="5" />
+    <Property Name="Email" Type="nvarchar" MaxLength="30" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="12" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentDate" Type="datetime" />
+    <Property Name="Image" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tIG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IgContent" Type="nvarchar" MaxLength="400" />
+    <Property Name="IgSrc" Type="nvarchar" MaxLength="200" />
+    <Property Name="IgDate" Type="nvarchar" MaxLength="12" />
+    <Property Name="IgLink" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="pwd" Type="nvarchar" MaxLength="20" />
+    <Property Name="repwd" Type="nvarchar" MaxLength="20" />
+    <Property Name="userName" Type="nvarchar" MaxLength="5" />
+    <Property Name="birthDay" Type="date" />
+  </EntityType>
+  <EntityType Name="tOrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderGuid" Type="nvarchar" MaxLength="10" />
+    <Property Name="userName" Type="nvarchar" MaxLength="5" />
+    <Property Name="pName" Type="nvarchar" MaxLength="12" />
+    <Property Name="pPrice" Type="int" />
+    <Property Name="pQty" Type="int" />
+    <Property Name="isApprove" Type="nvarchar" MaxLength="3" />
+    <Property Name="recName" Type="nvarchar" MaxLength="5" />
+    <Property Name="address" Type="nvarchar" MaxLength="30" />
+    <Property Name="OrderDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tProd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pName" Type="nvarchar" MaxLength="12" />
+    <Property Name="pComp" Type="nvarchar" MaxLength="20" />
+    <Property Name="pPrice" Type="int" />
+    <Property Name="pImage" Type="nvarchar" MaxLength="15" />
+    <Property Name="pSale" Type="int" />
+  </EntityType>
+  <EntityContainer Name="dbCakeShopModelStoreContainer">
+    <EntitySet Name="tComment" EntityType="Self.tComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tIG" EntityType="Self.tIG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tMember" EntityType="Self.tMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tOrderDetail" EntityType="Self.tOrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tProd" EntityType="Self.tProd" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

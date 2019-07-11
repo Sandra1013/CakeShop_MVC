@@ -1,0 +1,39 @@
+﻿@model Project_20190624.Models.tMember
+@{
+    ViewBag.Title = "Register";
+}
+
+<!--form -->
+
+<div class="col-lg-6 col-md-12 col-sm-12 card bg-light mt-3">
+    <div class="card-body">
+        <div class="container">
+            <h2>會員註冊</h2>
+            <span style="color:red">@Html.Raw(ViewBag.Message)</span>
+            <br>
+            <form action="" method="post">
+                <div class="form-group">
+                    電子郵件: @Html.TextBoxFor(m => m.email, new { @class = "form-control", placeholder = "電子郵件(即為您的會員帳號)", name = "mail", required = "required" })
+                    <br>
+                </div>
+                <div class="form-group">
+                    設定密碼: @Html.PasswordFor(m => m.pwd, new { @class = "form-control", name = "pwd", placeholder = "請設定您的密碼", required = "required" })
+                    <br>
+                </div>
+                <div class="form-group">
+                    確認密碼: @Html.PasswordFor(m => m.repwd, new { @class = "form-control", name = "repwd", placeholder = "請確認您的密碼", required = "required" })
+                    <br>
+                </div>
+                <div class="form-group">
+                    中文姓名: @Html.TextBoxFor(m => m.userName, new { @class = "form-control", placeholder = "請輸入中文姓名", name = "userName", required = "required" })
+                    <br>
+                </div>
+                <div class="form-group">
+                    生日(選填): @Html.TextBoxFor(m => m.birthDay, new { @class = "form-control", Type = "date" })
+                    <br>
+                </div>
+                <button type="submit" class="btn btn-primary">確定送出</button>
+            </form>
+        </div>
+    </div>
+</div>

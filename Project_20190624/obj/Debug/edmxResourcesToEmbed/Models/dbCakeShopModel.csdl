@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCakeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CommentDate" Type="DateTime" Precision="3" />
+    <Property Name="Image" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tIG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IgContent" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="IgSrc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IgDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="IgLink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="repwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="userName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="birthDay" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tOrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderGuid" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="userName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="pName" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="pPrice" Type="Int32" />
+    <Property Name="pQty" Type="Int32" />
+    <Property Name="isApprove" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="recName" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tProd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pName" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="pComp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="pPrice" Type="Int32" />
+    <Property Name="pImage" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="pSale" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="dbCakeShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tComments" EntityType="Self.tComment" />
+    <EntitySet Name="tIGs" EntityType="Self.tIG" />
+    <EntitySet Name="tMembers" EntityType="Self.tMember" />
+    <EntitySet Name="tOrderDetails" EntityType="Self.tOrderDetail" />
+    <EntitySet Name="tProds" EntityType="Self.tProd" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Project_20190624.Models.tMember>
+
+@{
+    ViewBag.Title = "MemberList";
+}
+
+<h1>現在是 @DateTime.Now</h1>
+<h6 class="title-sub center">會員總數: @Model.Count()個</h6>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.birthDay)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+            <td>
+                @{var time = Convert.ToDateTime(@item.birthDay).ToShortDateString();}
+                @time
+                @*@Html.DisplayFor(modelItem => item.birthDay)*@
+            </td>
+        </tr>
+    }
+
+</table>

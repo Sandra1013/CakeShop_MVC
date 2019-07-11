@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Project_20190624.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "DispatchList";
+}
+    
+<h1>現在是 @DateTime.Now</h1>
+<h6 class="title-sub center">未處理訂單數: @Model.Count()筆</h6>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderGuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isApprove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderGuid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pQty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isApprove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            <a href=" @Url.Action("Dispatch")?Id=@item.Id" class="btn btn-success">出貨</a>
+        </td>
+    </tr>
+}
+
+</table>
